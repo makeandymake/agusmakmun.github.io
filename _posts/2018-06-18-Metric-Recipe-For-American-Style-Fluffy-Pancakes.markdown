@@ -2,7 +2,6 @@
 layout: post
 title:  "Metric Recipe for Fluffy American Style Pancakes"
 date:   2018-06-18 15:04:00 +0100
-categories: [stuff]
 ---
 Over the past 6 months, I've been making pancakes for my family on Sunday mornings. My kids love American style pancakes covered in fruit and maple syrup, but I found it hard to find a metric recipe that worked for me, so I had to experiment and make quite some tweaks to get it how I like it. Want to make your own? Scroll past the pic to find out how!
 
