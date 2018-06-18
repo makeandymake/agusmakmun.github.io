@@ -2,7 +2,6 @@
 layout: post
 title:  "Welcome to my Maker blog"
 date:   2018-06-18 10:02:00 +0100
-categories: [stuff]
 ---
 __Hi, I'm Andy and I like to Make Stuff__ _(totally stealing Bob's line here!)._
 
