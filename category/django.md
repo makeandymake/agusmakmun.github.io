@@ -1,6 +1,6 @@
 ---
 layout: posts_by_category
-categories: django
-title: Django
-permalink: /category/django
+categories: stuff
+title: Stuff
+permalink: /category/stuff
 ---
