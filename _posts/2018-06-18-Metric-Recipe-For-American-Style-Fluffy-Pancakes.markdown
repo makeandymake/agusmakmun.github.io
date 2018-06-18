@@ -27,4 +27,4 @@ Give it about a minute to cook the other side and then flip it again, If it's st
 
 Now scrape it up your sample pancake and cut it in half. It should be cooked all the way through with no gooey bits. If that's the case then your pan is at the right temperature and you can begin cooking the rest of your batch. If it's still gooey, give your pan a little longer to heat up, and or pop the heat up a notch.
 
-Good luck on your pancake making journey and feel free to [share your pictures with me on Twitter!](http://twitter.com/awarburton)
+Good luck on your pancake making journey and feel free to [share your pictures or questions with me on Twitter!](http://twitter.com/awarburton)
