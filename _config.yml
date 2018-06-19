@@ -19,23 +19,21 @@ social:
     - icon: fa-facebook
       link: "#"
     - icon: fa-twitter
-      link: "https://twitter.com/agusmakmun6"
-    - icon: fa-linkedin
-      link: "https://www.linkedin.com/in/summonagus"
-    - icon: fa-stack-exchange
-      link: "#"
+      link: "https://twitter.com/awarburton"
     - icon: fa-github
-      link: "https://github.com/agusmakmun"
+      link: "https://github.com/andywarburton"
+    - icon: fa-instagram
+      link: "https://instagram.com/awarburton"  
 
 share:
-  twitter_username: agusmakmun6
-  fb_appid: 1749788565247320
+  twitter_username: awarburton
+  #fb_appid: 1749788565247320
 
 urls:
     - text: About Me
       url: /about/
-    - text: My Projects
-      url: /projects/
+#   - text: My Projects
+#   url: /projects/
     - text: XML Feed
       url: /feed.xml
 
