@@ -20,7 +20,7 @@ Now before I go any further, I can hear people already shouting:
 
 "WHY NOT JUST GET THE TIME DIRECTLY ON THE ESP8266 AND SKIP THE PI ALTOGETHER???"
 
-That is a perfectly valid question. You could absolutely use a variety of methods to get the time from the internet on the ESP8266 and use that as the foundation of your logic. But, this means that if you want to update the logic, you have to disassemble the lamp, connect the ESP8266 to your computer, reupload the code and repeat for every single lamp you own. That's more hassle than I have time for. By putting the majority of the logic on the Pi, I can easily update the code from anywhere in my home over the network without removing the lights from their various random locations.
+That is a perfectly valid question. You could absolutely use a variety of methods to get the time from the internet on the ESP8266 and use that as the foundation of your logic. But, this means that if you want to update the timing, you have to disassemble the lamp, connect the ESP8266 to your computer, r-eupload the code and repeat for every single lamp you own. That's more hassle than I have time for. By putting the majority of the logic on the Pi, I can easily update the code from anywhere in my home over the network without removing the lights from their various random locations.
 
 NB - you don't even have to put the logic on the Pi - if you have a web server anywhere that supports scripting, you could host your backend code there. I used python, but you could absolutely do this with PHP, Ruby, heck even Perl if you're that way inclined.
 
@@ -29,12 +29,77 @@ Building the lights:
 
 Time for a little bit of soldering. Trim the LED strips into appropriate lengths, cutting along the cut marks and solder on some stiff hookup wire making sure to attatch them to the data-in side of the strip. I use red for positive, black for ground and a nice bright colour for data. Attatch the positive wire to the 5v pin on the ESP8266, the ground to ground and the data pin to D3 (you can change this but you'll also need to update the code). I then gently loop over the strip and hotglue it to itself to create a "bulb" of sorts. Rinse and repeat for each lamp. I also add a little hot glue around the wires for strain relief. Upload the code and stick it in the enclosure of your choosing.
 
-Code on the ESP8266
+The Raspberry Pi
 ==
 
-So I'm going to assume that you know how to operate the Arduino IDE and upload code to your ESP8266. Simply copy this code into the Arduino IDE and modify the constant definitions at the top of the file to suit your needs. You'll
+So - if you haven't done this already, get a Raspberry Pi up and running with the latest Raspian and [install Flask using PIP](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/2). Make sure it's connected to your internet.
 
-{% highlight ruby %}
+The code here is pretty simple, it fires up a simple web server using Flask, gets the time from the system and then converts the time into a decimal for easy handling (for example 07:30 becomes 7.5)
+
+In your home directory, create a file called `app.py` and add the following code:
+
+{% highlight python %}
+
+from flask import Flask,request
+import datetime
+import random
+
+app = Flask(__name__)
+#app.run(debug=True)
+
+@app.route('/')
+
+def index():
+
+	user = request.args.get("user")
+
+	# get the time
+	a = datetime.datetime.now().time()
+	# convert time to a float
+	mytime = a.hour+a.minute/60.0
+	# default to off
+	color = "0,0,0,0"
+
+	if(mytime > 0):
+
+		r = 0
+		g = 0
+		b = 0
+		a = 0
+
+	if(mytime > 7):
+
+		r = 0
+		g = 255
+		b = 0
+		a = 255
+
+	if(mytime > 9):
+
+		r = 255
+		g = 255
+		b = 255
+		a = 255
+
+	color = str(r) + "," + str(g) + "," + str(b) + "," + str(a)
+
+	return color
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=999)
+
+{% endhighlight %}
+
+The ESP8266
+==
+
+What happens on the ESP8266 is pretty simple - it connects to the network (and flashes red, green and blue until it gets a connection) and once it's connected performs a http get request to a server where it expects to see four values seperated by commas in plain text; a red, green and blue value to generate an RGB colour and a brightness value. It disects this string into individual numbers and then pushes them out to the LED strip. It'll repeat this every 60 seconds or so.
+
+I'm not a trained programmer so this is probably not the best code on the planet but it gets the job done well enough (if you can make it more reliable, robust or just nicer to read, I would love to see your improvements!).
+
+So I'm going to assume that you know how to operate the Arduino IDE and upload code to your ESP8266. Simply copy this code into the Arduino IDE and modify the constant definitions at the top of the file to suit your needs. You'll need to add your wifi details and the address to the web server that's serving up the colours and you'll need to install the FastLED and ESP8266 Libraries in the Arduino IDE.
+
+{% highlight python %}
 
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
@@ -148,3 +213,4 @@ void loop() {
 
 {% endhighlight %}
 
+One great tip is to add a parameter to the data_src URL, then you can use it to identify indvidual lights in your API and respond with different colours depending on the device requesting it (for example http://mypi.local/?user=jack). Just don't forgot to change the parameter for each light you're creating.
