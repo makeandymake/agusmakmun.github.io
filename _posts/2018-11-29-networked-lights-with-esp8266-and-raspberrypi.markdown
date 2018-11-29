@@ -18,7 +18,7 @@ So here's the plan - I have a Pi 3B+ in my office that I use as a server. I will
 
 Now before I go any further, I can hear people already shouting: 
 
-"WHY NOT JUST GET THE TIME DIRECTLY ON THE ESP8266 AND SKIP THE PI ALTOGETHER???"
+> "WHY NOT JUST GET THE TIME DIRECTLY ON THE ESP8266 AND SKIP THE PI ALTOGETHER???"
 
 That is a perfectly valid question. You could absolutely use a variety of methods to get the time from the internet on the ESP8266 and use that as the foundation of your logic. But, this means that if you want to update the timing, you have to disassemble the lamp, connect the ESP8266 to your computer, r-eupload the code and repeat for every single lamp you own. That's more hassle than I have time for. By putting the majority of the logic on the Pi, I can easily update the code from anywhere in my home over the network without removing the lights from their various random locations.
 
