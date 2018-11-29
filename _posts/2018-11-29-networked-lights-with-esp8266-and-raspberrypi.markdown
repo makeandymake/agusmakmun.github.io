@@ -34,117 +34,117 @@ Code on the ESP8266
 
 So I'm going to assume that you know how to operate the Arduino IDE and upload code to your ESP8266. Simply copy this code into the Arduino IDE and modify the constant definitions at the top of the file to suit your needs. You'll
 
-{% highlight python %}
+{% highlight ruby %}
 
-  #include <ESP8266WiFi.h>
-  #include <ESP8266HTTPClient.h>
-  #include <FastLED.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+#include <FastLED.h>
 
-  FASTLED_USING_NAMESPACE
+FASTLED_USING_NAMESPACE
 
-  #define DATA_PIN    3
-  #define LED_TYPE    WS2812
-  #define COLOR_ORDER GRB
-  #define NUM_LEDS    16
-  #define WIFI_SSID   "your wifi network name here!"
-  #define WIFI_PWD    "Your wifi password"
-  #define HOST_NAME   "NightLight01"
-  #define DATA_SRC    "URL for the location of your little API"
+#define DATA_PIN    3
+#define LED_TYPE    WS2812
+#define COLOR_ORDER GRB
+#define NUM_LEDS    16
+#define WIFI_SSID   "your wifi network name here!"
+#define WIFI_PWD    "Your wifi password"
+#define HOST_NAME   "NightLight01"
+#define DATA_SRC    "URL for the location of your little API"
 
 
-  #define BRIGHTNESS          90
-  #define FRAMES_PER_SECOND  120
+#define BRIGHTNESS          90
+#define FRAMES_PER_SECOND  120
 
-  CRGB leds[NUM_LEDS];
+CRGB leds[NUM_LEDS];
 
-  // nasty function to explode strings like in PHP
-  String getValue(String data, char separator, int index) {
-    int found = 0;
-    int strIndex[] = {0, -1};
-    int maxIndex = data.length()-1;
-    for(int i=0; i<=maxIndex && found<=index; i++){
-      if(data.charAt(i)==separator || i==maxIndex){
-          found++;
-          strIndex[0] = strIndex[1]+1;
-          strIndex[1] = (i == maxIndex) ? i+1 : i;
-      }
+// nasty function to explode strings like in PHP
+String getValue(String data, char separator, int index) {
+  int found = 0;
+  int strIndex[] = {0, -1};
+  int maxIndex = data.length()-1;
+  for(int i=0; i<=maxIndex && found<=index; i++){
+    if(data.charAt(i)==separator || i==maxIndex){
+        found++;
+        strIndex[0] = strIndex[1]+1;
+        strIndex[1] = (i == maxIndex) ? i+1 : i;
     }
-    return found>index ? data.substring(strIndex[0], strIndex[1]) : "";
+  }
+  return found>index ? data.substring(strIndex[0], strIndex[1]) : "";
+}
+
+void setup() {
+
+  Serial.begin(230400);
+
+  // tell FastLED about the LED strip configuration
+  FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+
+  // set master brightness control
+  FastLED.setBrightness(BRIGHTNESS);
+
+  WiFi.begin(WIFI_SSID, WIFI_PWD);
+  WiFi.hostname(HOST_NAME);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    // flash on boot
+    for (int i=0; i <= NUM_LEDS; i++) {
+      leds[i].setRGB(255,0,0);
+      FastLED.show(); 
+    }
+    delay(100);
+    // flash on boot
+    for (int i=0; i <= NUM_LEDS; i++) {
+      leds[i].setRGB(0,255,0);
+      FastLED.show(); 
+    }
+    delay(100);
+    // flash on boot
+    for (int i=0; i <= NUM_LEDS; i++) {
+      leds[i].setRGB(0,0,255);
+      FastLED.show(); 
+    }
+    delay(100); 
+    Serial.println("Connecting.");
   }
 
-  void setup() {
+}
 
-    Serial.begin(230400);
+void loop() {
 
-    // tell FastLED about the LED strip configuration
-    FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+  delay(1000);
 
-    // set master brightness control
-    FastLED.setBrightness(BRIGHTNESS);
+  if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
 
-    WiFi.begin(WIFI_SSID, WIFI_PWD);
-    WiFi.hostname(HOST_NAME);
+    HTTPClient http;                              //Declare an object of class HTTPClient
+    http.begin(DATA_SRC);  //Specify request destination
+    int httpCode = http.GET();                    //Send the request
 
-    while (WiFi.status() != WL_CONNECTED) {
-      // flash on boot
+    if (httpCode > 0) { 
+
+      String payload = http.getString();   
+      Serial.println(payload);             
+
+      int r = getValue(payload, ',', 0).toInt();
+      int g = getValue(payload, ',', 1).toInt();
+      int b = getValue(payload, ',', 2).toInt();
+      int a = getValue(payload, ',', 3).toInt();
+
+      FastLED.setBrightness(a);
+
       for (int i=0; i <= NUM_LEDS; i++) {
-        leds[i].setRGB(255,0,0);
-        FastLED.show(); 
+        leds[i].setRGB(r,g,b); 
       }
-      delay(100);
-      // flash on boot
-      for (int i=0; i <= NUM_LEDS; i++) {
-        leds[i].setRGB(0,255,0);
-        FastLED.show(); 
-      }
-      delay(100);
-      // flash on boot
-      for (int i=0; i <= NUM_LEDS; i++) {
-        leds[i].setRGB(0,0,255);
-        FastLED.show(); 
-      }
-      delay(100); 
-      Serial.println("Connecting.");
-    }
-
-  }
-
-  void loop() {
-
-    delay(1000);
-
-    if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
-
-      HTTPClient http;                              //Declare an object of class HTTPClient
-      http.begin(DATA_SRC);  //Specify request destination
-      int httpCode = http.GET();                    //Send the request
-
-      if (httpCode > 0) { 
-
-        String payload = http.getString();   
-        Serial.println(payload);             
-
-        int r = getValue(payload, ',', 0).toInt();
-        int g = getValue(payload, ',', 1).toInt();
-        int b = getValue(payload, ',', 2).toInt();
-        int a = getValue(payload, ',', 3).toInt();
-
-        FastLED.setBrightness(a);
-
-        for (int i=0; i <= NUM_LEDS; i++) {
-          leds[i].setRGB(r,g,b); 
-        }
-        FastLED.show();
-
-      }
-
-      http.end();   //Close connection
+      FastLED.show();
 
     }
 
-    delay(1000*60);    //Send a request every 60 seconds
+    http.end();   //Close connection
 
   }
+
+  delay(1000*60);    //Send a request every 60 seconds
+
+}
 
 {% endhighlight %}
 
