@@ -34,7 +34,7 @@ The Raspberry Pi
 
 So - if you haven't done this already, get a Raspberry Pi up and running with the latest Raspian and [install Flask using PIP](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/2). Make sure it's connected to your internet.
 
-The code here is pretty simple, it fires up a simple web server using Flask, gets the time from the system and then converts the time into a decimal for easy handling (for example 07:30 becomes 7.5)
+The code here is pretty simple, it fires up a simple web server using Flask, gets the time from the system and then converts the time into a decimal for easy handling (for example 07:30 becomes 7.5). 
 
 In your home directory, create a file called `app.py` and add the following code:
 
@@ -45,7 +45,6 @@ import datetime
 import random
 
 app = Flask(__name__)
-#app.run(debug=True)
 
 @app.route('/')
 
@@ -89,6 +88,8 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=999)
 
 {% endhighlight %}
+
+This is a simple example that starts off switched off, turns green at 7am and then white at 9am. You can add additional logic if you want more steps in your lights (in mine I have them start off red and slowly fade through yellow to white to simulate a sunrise then I have additional logic that sets them to my kids favourite colours during the day).
 
 The ESP8266
 ==
