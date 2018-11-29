@@ -3,16 +3,17 @@ layout: post
 title:  "Networked Nightlights with ESP8266 and Raspberry Pi"
 date:   2018-11-29 21:00:00 +0100
 ---
+
 A couple of years ago I made my eldest kid a nightlight for his bedroom. It was a simple project using a Raspberry Pi Zero, a Pimoroni Unicorn HAT and some code in Python. It was especially useful because we were able to use the colours to help him know when it was an appropriate time to get out of bed in the morning (the little monkey had a horrible habit at waking up at 5am on a Saturday morning and waking the whole house up!). I originally coded up some horrible Python but then [Tanya](https://twitter.com/tanurai) at Pimoroni wrote up a [really nice guide using](https://learn.pimoroni.com/tutorial/tanya/cute-alarm-clock) the Schedule library that I adapted for my own needs.
 
-The good thing about this way of doing it, is you can build it really quickly. Take a Raspberry Pi Zero W, slap on a Unicorn Hat, pop in a little SD card and throw in some simple Python code and you're up and running. Very little electronics knowledge needed because everything is practically plug and play! All thats left to figure out is an enclosure (the Flying Tiger chain of stores make some awesome plastic battery powered night lights that are great fun to hack and come in relatively cheaply)
+The good thing about this way of doing it, is you can build it really quickly. Take a Raspberry Pi Zero W, slap on a Unicorn Hat, pop in a little SD card and throw in some simple Python code and you're up and running. Very little electronics knowledge is needed because everything is practically plug and play! All thats left to figure out is an enclosure (the Flying Tiger chain of stores make some awesome plastic battery powered night lights that are great fun to hack and come in relatively cheaply)
 
 The downside is cost. A Raspberry Pi Zero WH will set you back around £15, The Unicorn Phat is £10 and you're looking at about another £7 for an SD card (depending on size). That's £32 and thats not including a power supply or enclosure. It would be cheaper to use a standard Pi Zero but unfortunately the Pi doesn't have a real time clock so you're dependent on an internet connection in order to get the current time using NTP (Network Time Protocol).
 
 Scaling up and reducing costs
 ==
 
-Since I built the first light, I've had a couple more kids and more kids means more night lights. So I wanted to find a more cost-effective way to scale up my production of nightlights so I could make lights for all the kids.
+In recent years I've had a couple more kids and more kids means more night lights. So I wanted to find a cost-effective way to scale up my production so I could make lights for all the kids.
 
 So here's the plan: I have a Pi 3B+ in my office that I use as a server. I will use that to gather the time and beam it to the lamps wirelessly. The lamps themselves will be controlled with the amazingly cheap ESP8266 (Arduino IDE compatible Wifi enabled microcontroller!) which can be ordered direct from AliExpress for less than £2 per unit. 
 
@@ -22,7 +23,9 @@ Now before I go any further, I can hear people already shouting:
 
 > "WHY NOT JUST GET THE TIME DIRECTLY ON THE ESP8266 AND SKIP THE PI ALTOGETHER???"
 
-That is a perfectly valid question. You could absolutely use a variety of methods to get the time from the internet on the ESP8266 and use that as the foundation of your logic. But this means that if you want to update the timing, you have to disassemble the lamp, connect the ESP8266 to your computer, re-upload the code and repeat for every single lamp you own. That's more hassle than I have time for. By putting the majority of the logic on the Pi, I can easily update the code from anywhere in my home over the network without removing the lights from their various random locations.
+<iframe src="https://giphy.com/embed/p2WRqA5wmXQuA" width="480" height="328" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+You could absolutely use a variety of methods to get the time from the internet on the ESP8266 and use that as the foundation of your logic. But this means that if you want to update the timing, you have to disassemble the lamp, connect the ESP8266 to your computer, re-upload the code and repeat for every single lamp you own. That's more hassle than I have time for. By putting the majority of the logic on the Pi, I can easily update the code from anywhere in my home over the network without removing the lights from their various random locations.
 
 NB - you don't even have to put the logic on a Pi - if you have a web server anywhere that supports scripting, you could host your backend code there. I used Python, but you could absolutely do this with PHP, Ruby, heck even Perl if you're that way inclined.
 
