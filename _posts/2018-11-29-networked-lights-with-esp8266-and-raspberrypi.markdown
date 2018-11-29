@@ -34,7 +34,7 @@ The Raspberry Pi
 
 So - if you haven't done this already, get a Raspberry Pi up and running with the latest Raspian and [install Flask using PIP](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/2). Make sure it's connected to your internet.
 
-The code here is pretty simple, it fires up a simple web server using Flask, gets the time from the system and then converts the time into a decimal for easy handling (for example 07:30 becomes 7.5). 
+The code here is pretty simple, it fires up a simple web server using Flask, gets the time from the system and then converts the time into a decimal for easy handling (for example 07:30 becomes 7.5). It then uses some simple logic to define the colours and brightness and then concatenates them into a simple string that it outputs as a very basic text document.
 
 In your home directory, create a file called `app.py` and add the following code:
 
@@ -54,17 +54,12 @@ def index():
 
 	# get the time
 	a = datetime.datetime.now().time()
+
 	# convert time to a float
 	mytime = a.hour+a.minute/60.0
+
 	# default to off
 	color = "0,0,0,0"
-
-	if(mytime > 0):
-
-		r = 0
-		g = 0
-		b = 0
-		a = 0
 
 	if(mytime > 7):
 
@@ -89,7 +84,17 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-This is a simple example that starts off switched off, turns green at 7am and then white at 9am. You can add additional logic if you want more steps in your lights (in mine I have them start off red and slowly fade through yellow to white to simulate a sunrise then I have additional logic that sets them to my kids favourite colours during the day).
+This is a simple example that starts off switched off, turns green at 7am and then white at 9am. You can add additional logic if you want more steps in your lights (in mine I have them start off red at 5am and slowly fade through yellow to white to simulate a sunrise then I have additional logic that sets them to my kids favourite colours during the day).
+
+You can fire up the web server by simply typing `sudo python app.py` on the command line and then you can visit the server in your browser using it's hostname or IP to see if it's working. Assuming the name of your Pi on the network is "mypi" you should be able to see your Pi at `http://mypi.local:999` and the output in your browser should be something like `255,0,0,255`.
+
+You can now disable the web server using `ctrl+c`
+
+Next we need it to boot up automatically when the Pi is switched on. That's easy, just type `crontab -e` on the command line and then scroll to the bottom and add the following line: 
+
+`@reboot /home/pi/app.py`
+
+Then just to be sure, reboot the Pi (`sudo reboot`) and then test the URL in the browser again. If all is well, you can move onto putting the software onto the ESP8266!
 
 The ESP8266
 ==
