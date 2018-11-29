@@ -107,7 +107,7 @@ Then just to be sure, reboot the Pi (`sudo reboot`) and then test the URL in the
 The ESP8266
 ==
 
-What happens on the ESP8266 is pretty simple - it connects to the network (and flashes red, green and blue until it gets a connection) and once it's connected performs a http get request to a server where it expects to see four values seperated by commas in plain text; a red, green and blue value to generate an RGB colour and a brightness value. It disects this string into individual numbers and then pushes them out to the LED strip. It'll repeat this every 60 seconds or so.
+What happens on the ESP8266 is pretty simple - it connects to the network (and flashes red, green and blue until it gets a connection) and once it's connected performs a http get request to a server where it expects to see four values separated by commas in plain text; a red, green and blue value to generate an RGB colour and a brightness value. It dissects this string into individual numbers and then pushes them out to the LED strip. It'll repeat this every 60 seconds or so.
 
 I'm not a trained programmer so this is probably not the best code on the planet but it gets the job done well enough (if you can make it more reliable, robust or just nicer to read, I would love to see your improvements!).
 
@@ -227,8 +227,8 @@ void loop() {
 
 {% endhighlight %}
 
-One great tip is to add a parameter to the data_src URL, then you can use it to identify indvidual lights in your API and respond with different colours depending on the device requesting it (for example http://mypi.local/?user=jack). Just don't forgot to change the parameter for each light you're creating (my python code above is already reading the user variable from the query string, you can access it with the `user` variable anywhere in the Python script)
+One great tip is to add a parameter to the data_src URL, then you can use it to identify individual lights in your API and respond with different colours depending on the device requesting it (for example http://mypi.local/?user=jack). Just don't forgot to change the parameter for each light you're creating (my python code above is already reading the user variable from the query string, you can access it with the `user` variable anywhere in the Python script)
 
-So... if all went to plan, you should now have a networked night light up and running that changes colour depending on the time of day. Of course, there's no need to limit yourself. Your Python script can decide it's colours in all kinds of ways, you could randomly generate colours, set them based on the weather or even pull data from a public API like Cheerlights and let Twitter decide the colour of your lights! There's also no need to wrap them in a kids nightlight - you could install the lights in plantpots, on headboards or even behind the TV. Once you have the basic peices described here, the rest is all up to your imagination.
+So... if all went to plan, you should now have a networked night light up and running that changes colour depending on the time of day. Of course, there's no need to limit yourself. Your Python script can decide it's colours in all kinds of ways, you could randomly generate colours, set them based on the weather or even pull data from a public API like Cheerlights and let Twitter decide the colour of your lights! There's also no need to wrap them in a kids nightlight - you could install the lights in plant pots, on headboards or even behind the TV. Once you have the basic pieces described here, the rest is all up to your imagination.
 
 Thanks for taking the time to read this. I would love to see what you made, if you do make this, please share your projects, suggestions and questions with me on Twitter ([@awarburton](http://twitter.com/awarburton)).
