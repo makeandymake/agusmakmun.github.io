@@ -19,7 +19,7 @@ span.time, span.categories {
   margin-bottom: 5px;
   font-size: 11px;
 }
-p {
+p, img, iframe {
   margin-bottom: 15px
 }
 
