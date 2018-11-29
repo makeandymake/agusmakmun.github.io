@@ -232,4 +232,4 @@ One great tip is to add a parameter to the data_src URL, then you can use it to 
 
 So... if all went to plan, you should now have a networked night light up and running that changes colour depending on the time of day. Of course, there's no need to limit yourself. Your Python script can decide it's colours in all kinds of ways, you could randomly generate colours, set them based on the weather or even pull data from a public API like Cheerlights and let Twitter decide the colour of your lights! There's also no need to wrap them in a kids nightlight - you could install the lights in plantpots, on headboards or even behind the TV. Once you have the basic peices described here, the rest is all up to your imagination.
 
-If you do this, I would love to see what you made - please share with me on Twitter ([@awarburton](http://twitter.com/awarburton))!
+Thanks for taking the time to read this. I would love to see what you made, if you do this, please share your projects, suggestions and questions with me on Twitter ([@awarburton](http://twitter.com/awarburton)).
