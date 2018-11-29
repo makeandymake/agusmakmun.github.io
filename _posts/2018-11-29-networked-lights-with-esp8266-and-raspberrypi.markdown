@@ -34,6 +34,8 @@ Code on the ESP8266
 
 So I'm going to assume that you know how to operate the Arduino IDE and upload code to your ESP8266. Simply copy this code into the Arduino IDE and modify the constant definitions at the top of the file to suit your needs. You'll
 
+{% highlight python %}
+
   #include <ESP8266WiFi.h>
   #include <ESP8266HTTPClient.h>
   #include <FastLED.h>
@@ -143,4 +145,6 @@ So I'm going to assume that you know how to operate the Arduino IDE and upload c
     delay(1000*60);    //Send a request every 60 seconds
 
   }
+
+{% endhighlight %}
 
