@@ -5,11 +5,10 @@ date:   2018-11-29 21:00:00 +0100
 ---
 
 <img src="/static/img/nightlight.jpg">
-
   
 A couple of years ago I made my eldest kid a nightlight for his bedroom. It was a simple project using a Raspberry Pi Zero, a Pimoroni Unicorn HAT and some code in Python. It was especially useful because we were able to use the colours to help him know when it was an appropriate time to get out of bed in the morning (the little monkey had a horrible habit at waking up at 5am on a Saturday morning and waking the whole house up!). I originally coded up some horrible Python but then [Tanya](https://twitter.com/tanurai) at Pimoroni wrote up a [really nice guide using](https://learn.pimoroni.com/tutorial/tanya/cute-alarm-clock) the Schedule library that I adapted for my own needs.
 
-The good thing about this way of doing it, is you can build it really quickly. Take a Raspberry Pi Zero W, slap on a Unicorn Hat, pop in a little SD card and throw in some simple Python code and you're up and running. Very little electronics knowledge is needed because everything is practically plug and play! All thats left to figure out is an enclosure (the Flying Tiger chain of stores make some awesome plastic battery powered night lights that are great fun to hack and come in relatively cheaply)
+The good thing about this way of doing it, is you can build it really quickly. Take a Raspberry Pi Zero W, slap on a Unicorn Hat, pop in a little SD card and throw in some simple Python code and you're up and running. Very little electronics knowledge is needed because everything is practically plug and play! All thats left to figure out is an enclosure (the Flying Tiger chain of stores make some awesome plastic battery powered night lights that come in a ton of fun shapes, easy to hack and usually cost around about £5).
 
 The downside is cost. A Raspberry Pi Zero WH will set you back around £15, The Unicorn Phat is £10 and you're looking at about another £7 for an SD card (depending on size). That's £32 and thats not including a power supply or enclosure. It would be cheaper to use a standard Pi Zero but unfortunately the Pi doesn't have a real time clock so you're dependent on an internet connection in order to get the current time using NTP (Network Time Protocol).
 
@@ -232,4 +231,4 @@ One great tip is to add a parameter to the data_src URL, then you can use it to 
 
 So... if all went to plan, you should now have a networked night light up and running that changes colour depending on the time of day. Of course, there's no need to limit yourself. Your Python script can decide it's colours in all kinds of ways, you could randomly generate colours, set them based on the weather or even pull data from a public API like Cheerlights and let Twitter decide the colour of your lights! There's also no need to wrap them in a kids nightlight - you could install the lights in plantpots, on headboards or even behind the TV. Once you have the basic peices described here, the rest is all up to your imagination.
 
-Thanks for taking the time to read this. I would love to see what you made, if you do this, please share your projects, suggestions and questions with me on Twitter ([@awarburton](http://twitter.com/awarburton)).
+Thanks for taking the time to read this. I would love to see what you made, if you do make this, please share your projects, suggestions and questions with me on Twitter ([@awarburton](http://twitter.com/awarburton)).
