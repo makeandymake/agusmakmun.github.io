@@ -8,9 +8,9 @@ date:   2018-11-29 21:00:00 +0100
   
 A couple of years ago I made my oldest kid a nightlight for his bedroom. It was a simple project using a Raspberry Pi Zero, a Pimoroni Unicorn HAT and some code in Python. I set it up to change colours at specific times of day to help him know when it was bed time and what time it was ok to get out of bed in the mornings (the little monkey had a horrible habit at waking up at 5am on a Saturday morning!). I originally coded up a simple Python Script to control the lights from scratch but then [Tanya](https://twitter.com/tanurai) at Pimoroni wrote up a [really nice guide](https://learn.pimoroni.com/tutorial/tanya/cute-alarm-clock) using the Schedule library that I adapted for my own needs.
 
-This method of building a programmable nightlight is pretty straight forward. You grab a Raspberry Pi Zero W, slap on a Unicorn Hat, pop in a little SD card and throw up some simple Python code. Very little electronics knowledge is needed because everything is practically plug and play! All that remains to figure out is an enclosure. I find the Tiger/Flying Tiger chain of stores to be a great source for fun, hackable light enclosures (however, if you have a 3D printer, the sky really is the limit!)
+This method of building a programmable nightlight is pretty straight forward. You grab a Raspberry Pi Zero W, slap on a Unicorn Hat, pop in a little SD card and throw up some simple Python code. Very little electronics knowledge is needed because everything is practically plug and play! All that remains to figure out is an enclosure. I find the Tiger/Flying Tiger chain of stores to be a great source for fun, hackable light enclosures.
 
-The downside is cost. A Raspberry Pi Zero WH will set you back around £15, The Unicorn Phat is £10 and you're looking at  another £7 for an SD card (depending on size). Finally for power, the The official Pi Foundation power supply is £8. This comes to a total of about £40. It would be cheaper to use a standard Pi Zero but unfortunately the Pi doesn't have a real time clock so you're dependent on an internet connection in order to get the current time using NTP (Network Time Protocol).
+The main downside is cost. A Raspberry Pi Zero WH will set you back around £15, The Unicorn Phat is £10 and you're looking at  another £7 for an SD card (depending on size). Finally for power, the The official Pi Foundation power supply is £8. This comes to a total of about £40. It would be cheaper to use a standard Pi Zero but unfortunately the Pi doesn't have a real time clock so you're dependent on an internet connection in order to get the current time using NTP (Network Time Protocol).
 
 Scaling up and reducing costs
 ==
@@ -24,6 +24,7 @@ Materials
 * Cheap ESP8266 from Aliexpress (£2)
 * WS2812B LED Strip. 60 LED's per meter. £3
 * USB Charger and Micro USB Cable £2
+* Enclosure - whatever you like!
 
 So here's the plan: I have a Pi 3B+ in my office thats always on. I will use that to gather the time and beam it to the lamps wirelessly. The lamps themselves will be controlled with the amazingly cheap ESP8266 (Arduino IDE compatible Wifi enabled microcontroller!).
 
