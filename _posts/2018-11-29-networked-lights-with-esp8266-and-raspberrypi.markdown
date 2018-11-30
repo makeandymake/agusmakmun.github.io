@@ -4,8 +4,6 @@ title:  "Networked Nightlights with ESP8266 and Raspberry Pi"
 date:   2018-11-29 21:00:00 +0100
 ---
 
-_In the interest of clarity, I just want to prefix this post with a little disclaimer. This isn't an indepth tutorial, more a project log to inspire others that want to build similar projects. There's a minimum amount of knowledge required if you want to build this. You'll need to know how to add code in the Arduino IDE and upload it to your device and you'll also need some experience operating and connecting to a Raspberry Pi on the command line. The code I've supplied is pretty basic. I'm not a full time software developer and the languages used here are certainly not my strong suite so be prepared for some hacky code that could probably be drastically improved. If you see any obvious room for improvement, I would love to hear about it!_
-
 <img src="/static/img/nightlight.jpg">
   
 A couple of years ago I made my oldest kid a nightlight for his bedroom. It was a simple project using a Raspberry Pi Zero, a Pimoroni Unicorn HAT and some code in Python. I set it up to change colours at specific times of day to help him know when it was bed time and what time it was ok to get out of bed in the mornings (the little monkey had a horrible habit at waking up at 5am on a Saturday morning!). I originally coded up a simple Python Script to control the lights from scratch but then [Tanya](https://twitter.com/tanurai) at Pimoroni wrote up a [really nice guide](https://learn.pimoroni.com/tutorial/tanya/cute-alarm-clock) using the Schedule library that I adapted for my own needs.
@@ -19,15 +17,17 @@ Scaling up and reducing costs
 
 In recent years I've had a couple more kids and more kids means more night lights. Making three lights using the old method would cost a small fortune so I decided to figure out a more scalable solution that would cost significantly less.
 
-So here's the plan: I have a Pi 3B+ in my office thats always on. I will use that to gather the time and beam it to the lamps wirelessly. The lamps themselves will be controlled with the amazingly cheap ESP8266 (Arduino IDE compatible Wifi enabled microcontroller!) which can be ordered direct from AliExpress for less than £2 per unit.
+Materials
+===
 
-For lights, I bought WS2812B RGB LED strips (also from AliExpress), a 1 meter strip costs as little as £3 and includes 60 LED's. 15 LED's is enough to supply more than enough light for our needs so that's 4 lamps from one strip! For power, I use a standard USB phone charger and micro USB cable (I had these lying around but you can buy the charger and cable for about £2 depending on the length of the cable). So all in, you can build each lamp for less than £5!
+* Raspberry Pi 3B+ with an always on network connection (although a Zero W would do the job too!)
+* Cheap ESP8266 from Aliexpress (£2)
+* WS2812B LED Strip. 60 LED's per meter. £3
+* USB Charger and Micro USB Cable £2
 
-I can already hear people shouting:
+So here's the plan: I have a Pi 3B+ in my office thats always on. I will use that to gather the time and beam it to the lamps wirelessly. The lamps themselves will be controlled with the amazingly cheap ESP8266 (Arduino IDE compatible Wifi enabled microcontroller!).
 
-> **"WHY NOT JUST GET THE TIME DIRECTLY ON THE ESP8266 AND SKIP THE PI ALTOGETHER???"**
-    
-You could absolutely use a variety of methods to get the time from the internet on the ESP8266 and use that as the foundation of your logic. However, if you want to update the timing, you have to disassemble the lamp, connect the ESP8266 to your computer, re-upload the code and repeat for every single lamp you own. That's more hassle than I have time for. By putting the majority of the logic on the Pi, I can easily update the code from anywhere in my home, over the network and without removing the lights from their various random locations.
+For lights, I bought WS2812B RGB LED strips, a 1 meter strip includes 60 LED's. 15 LED's supplies more than enough light for our needs so that's 4 lamps from one strip! For power, I use a standard USB phone charger and micro USB cable (I had these lying around but you can buy the charger and cable for about £2 depending on the length of the cable). So all in, you can build each lamp for less than £5!
 
 You don't even have to put the logic on a Pi - if you have a web server anywhere online that supports scripting, you could host your backend code there. I used Python, but you could absolutely do this with PHP, Ruby, heck even Perl if you're that way inclined.
 
