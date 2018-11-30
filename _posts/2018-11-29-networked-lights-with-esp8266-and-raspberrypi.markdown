@@ -5,6 +5,8 @@ date:   2018-11-29 21:00:00 +0100
 ---
 
 <img src="/static/img/nightlight.jpg">
+
+_In the interest of clarity, I just want to prefix this post with a little disclaimer. This isn't an indepth tutorial on how to achieve this, more a project log to inspire others that want to build similar projects. There's a minimum amount of knowledge required if you want to build this. You'll need to know how to add code in the Arduino IDE and upload it to your device and you'll also need some experience operating and connecting to a Raspberry Pi on the command line The code I've supplied is pretty basic. I'm not a full time software developer and the languages used here are certainly not my strong suite so be prepared for some hacky code that could probably be drastically improved. If you see any obvious room for improvement, I would love to hear about it!_
   
 A couple of years ago I made my eldest kid a nightlight for his bedroom. It was a simple project using a Raspberry Pi Zero, a Pimoroni Unicorn HAT and some code in Python. It was especially useful because we were able to use the colours to help him know when it was an appropriate time to get out of bed in the morning (the little monkey had a horrible habit at waking up at 5am on a Saturday morning and waking the whole house up!). I originally coded up some horrible Python but then [Tanya](https://twitter.com/tanurai) at Pimoroni wrote up a [really nice guide using](https://learn.pimoroni.com/tutorial/tanya/cute-alarm-clock) the Schedule library that I adapted for my own needs.
 
@@ -108,8 +110,6 @@ The ESP8266
 ==
 
 What happens on the ESP8266 is pretty simple - it connects to the network (and flashes red, green and blue until it gets a connection) and once it's connected performs a http get request to a server where it expects to see four values separated by commas in plain text; a red, green and blue value to generate an RGB colour and a brightness value. It dissects this string into individual numbers and then pushes them out to the LED strip. It'll repeat this every 60 seconds or so.
-
-I'm not a trained programmer so this is probably not the best code on the planet but it gets the job done well enough (if you can make it more reliable, robust or just nicer to read, I would love to see your improvements!).
 
 So I'm going to assume that you know how to operate the Arduino IDE and upload code to your ESP8266. Simply copy this code into the Arduino IDE and modify the constant definitions at the top of the file to suit your needs. You'll need to add your wifi details and the address to the web server that's serving up the colours and you'll need to install the FastLED and ESP8266 Libraries in the Arduino IDE.
 
