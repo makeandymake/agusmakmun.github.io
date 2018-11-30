@@ -22,13 +22,13 @@ Materials
 
 * Raspberry Pi 3B+ with an always on network connection (although a Zero W would do the job too!)
 * Cheap ESP8266 from Aliexpress (£2)
-* WS2812B LED Strip. 60 LED's per meter. £3
+* WS2812B LED Strip. 60 LEDs per meter. £3
 * USB Charger and Micro USB Cable £2
 * Enclosure - whatever you like!
 
 So here's the plan: I have a Pi 3B+ in my office thats always on. I will use that to gather the time and beam it to the lamps wirelessly. The lamps themselves will be controlled with the amazingly cheap ESP8266 (Arduino IDE compatible Wifi enabled microcontroller!).
 
-For lights, I bought WS2812B RGB LED strips, a 1 meter strip includes 60 LED's. 15 LED's supplies more than enough light for our needs so that's 4 lamps from one strip! For power, I use a standard USB phone charger and micro USB cable (I had these lying around but you can buy the charger and cable for about £2 depending on the length of the cable). So all in, you can build each lamp for less than £5!
+For lights, I bought WS2812B RGB LED strips, a 1 meter strip includes 60 LEDs. 15 LEDs supplies more than enough light for our needs so that's 4 lamps from one strip! For power, I use a standard USB phone charger and micro USB cable (I had these lying around but you can buy the charger and cable for about £2 depending on the length of the cable). So all in, you can build each lamp for less than £5!
 
 You don't even have to put the logic on a Pi - if you have a web server anywhere online that supports scripting, you could host your backend code there. I used Python, but you could absolutely do this with PHP, Ruby, heck even Perl if you're that way inclined.
 
@@ -39,7 +39,7 @@ Building the lights:
 
 Time for some soldering! Trim the LED strips into appropriate lengths (15 works well), cutting along the cut marks and solder on some stiff hookup wire making sure to attatch them to the data-in side of the strip. Attatch the positive wire to the 5v pin on the ESP8266, the ground to ground and the data pin to D3 (you can change this but you'll also need to update the code). I then gently loop over the strip and hotglue it to itself to create a "bulb" of sorts. Rinse and repeat for each lamp. I also add a little hot glue around the wires for strain relief. Upload the code and stick it in the enclosure of your choosing.
 
-Initially I was using strips of 25 LED's per lamp but I found the power draw was often too much for the ESP8266 and was causing random dropouts on the wifi connection so I reduced the number down to 16 which was still more than enough.
+Initially I was using strips of 25 LEDs per lamp but I found the power draw was often too much for the ESP8266 and was causing random dropouts on the wifi connection so I reduced the number down to 16 which was still more than enough.
 
 The Raspberry Pi
 ==
@@ -93,9 +93,9 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-This is a simple example that starts off with all LED's set to off, turns green at 7am and then white at 9am. You can add additional logic if you want more steps in your lights (in mine I have them start off red at 5am and slowly fade through orange, to yellow to white to simulate a sunrise, then I have additional logic that sets them to my kids favourite colours during the day).
+This is a simple example that starts off with all LEDs set to off, turns green at 7am and then white at 9am. You can add additional logic if you want more steps in your lights (in mine I have them start off red at 5am and slowly fade through orange, to yellow to white to simulate a sunrise, then I have additional logic that sets them to my kids favourite colours during the day).
 
-You can fire up the web server by simply typing `sudo python app.py` on the command line and then you can visit the server in your browser using it's hostname or IP to see if it's working. Assuming the name of your Pi on the network is "mypi" you should be able to see your Pi at `http://mypi.local:999` and the output in your browser should be something like `255,0,0,255`.
+You can fire up the web server by simply typing `sudo python app.py` on the command line and then you can visit the server in your browser using it's hostname or IP to see if it's working. Assuming the name of your Pi on the network is "mypi" you should be able to see your Pi at `://mypi.local:999` and the output in your browser should be something like `255,0,0,255`.
 
 You can now disable the web server using `ctrl+c`
 
@@ -110,7 +110,7 @@ The ESP8266
 
 <img src="/static/img/IMG_7435.jpg">
 
-What happens on the ESP8266 is pretty simple. It connects to the network then performs a http get request to a web page where it expects to see four values separated by commas in plain text; a red, green and blue value to generate an RGB colour and a brightness value. It chops this string into individual numbers and then pushes them out to the LED strip using the FastLED library. It'll repeat this every 60 seconds or so (this is adjustable depending on how close to real time you need your lights to be).
+What happens on the ESP8266 is pretty simple. It connects to the network then performs an http get request to a web page where it expects to see four values separated by commas in plain text; a red, green and blue value to generate an RGB colour and a brightness value. It chops this string into individual numbers and then pushes them out to the LED strip using the FastLED library. It'll repeat this every 60 seconds or so (this is adjustable depending on how close to real time you need your lights to be).
 
 Simply copy this code into the Arduino IDE and modify the constant definitions at the top of the file to suit your needs. You'll need to add your wifi details and the address to the web server that's serving up the colours and you'll need to install the FastLED and ESP8266 Libraries in the Arduino IDE. Once you're happy compile and publish the code to the ESP8266
 
@@ -212,8 +212,10 @@ void loop() {
 
 {% endhighlight %}
 
-If all went to plan, you should now have a networked night light up and running that changes colour depending on the time of day. Of course, there's no need to limit yourself. Your Python script can decide it's colours in all kinds of ways, you could randomly generate colours, set them based on the weather or even pull data from a public API like Cheerlights and let Twitter decide the colour of your lights! There's also no need to wrap them in a kids nightlight - you could install the lights in a fancy floor lamp, plant pots, on headboards or even behind the TV. Once you have the basic pieces described here, the rest is all up to your imagination.
+If all went to plan, you should now have a networked night light up and running that changes colour depending on the time of day. Of course, there's no need to limit yourself. Your Python script can decide its colours in all kinds of ways, you could randomly generate colours, set them based on the weather or even pull data from a public API like Cheerlights and let Twitter decide the colour of your lights! There's also no need to wrap them in a kids nightlight - you could install the lights in a fancy floor lamp, plant pots, on headboards or even behind the TV. Once you have the basic pieces described here, the rest is all up to your imagination.
 
-Thanks for taking the time to read this. I would love to see what you made, if you do make anything based on this, please share your projects, suggestions and questions with me on Twitter ([@awarburton](http://twitter.com/awarburton)).
+Thanks for taking the time to read this. I would love to see what you made. If you do make anything based on this, please share your projects, suggestions and questions with me on Twitter ([@awarburton](http://twitter.com/awarburton)).
+
+Finally - thanks to [Jaap](https://twitter.com/tjaap) and [Mike](https://twitter.com/recantha) for helping proof-read and tweak my horrible writing! ♥
 
 <img src="/static/img/IMG_7438.jpg">
