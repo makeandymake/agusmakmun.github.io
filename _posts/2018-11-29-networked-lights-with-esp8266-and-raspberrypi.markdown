@@ -43,7 +43,7 @@ Time for some soldering! Trim the LED strips into appropriate lengths, cutting a
 The Raspberry Pi
 ==
 
-If you haven't done this already, get a Raspberry Pi up and running with the latest Raspian and [install Flask using PIP](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/2). Make sure it's connected to your internet.
+If you haven't done this already, get a Raspberry Pi up and running with the latest Raspian and [install Flask using PIP](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/2). 
 
 The code here is pretty simple, it fires up a simple web server using Flask, gets the time from the system and then converts the time into a decimal for easy handling (for example 07:30 becomes 7.5). It then uses some simple logic to define the colours and brightness and then concatenates them into a simple string that it outputs as a very basic text document.
 
