@@ -36,7 +36,7 @@ NB - you don't even have to put the logic on a Pi - if you have a web server any
 Building the lights:
 ==
 
-<img src="/static/img/_posts/IMG_7437.jpg">
+<img src="/static/img/IMG_7437.jpg">
 
 Time for some soldering! Trim the LED strips into appropriate lengths, cutting along the cut marks and solder on some stiff hookup wire making sure to attatch them to the data-in side of the strip. Attatch the positive wire to the 5v pin on the ESP8266, the ground to ground and the data pin to D3 (you can change this but you'll also need to update the code). I then gently loop over the strip and hotglue it to itself to create a "bulb" of sorts. Rinse and repeat for each lamp. I also add a little hot glue around the wires for strain relief. Upload the code and stick it in the enclosure of your choosing.
 
@@ -110,7 +110,7 @@ Then just to be sure, reboot the Pi (`sudo reboot`) and then test the URL in the
 The ESP8266
 ==
 
-<img src="/static/img/_posts/IMG_7435.jpg">
+<img src="/static/img/IMG_7435.jpg">
 
 What happens on the ESP8266 is pretty simple. It connects to the network then performs a http get request to a web page where it expects to see four values separated by commas in plain text; a red, green and blue value to generate an RGB colour and a brightness value. It chops this string into individual numbers and then pushes them out to the LED strip using the FastLED library. It'll repeat this every 60 seconds or so (this is adjustable depending on how close to real time you need your lights to be).
 
