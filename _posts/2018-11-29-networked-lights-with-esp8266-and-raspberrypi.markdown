@@ -35,9 +35,13 @@ You don't even have to put the logic on a Pi - if you have a web server anywhere
 Building the lights:
 ==
 
-<img src="/static/img/IMG_7437.jpg">
+<img src="/static/img/fritzing.jpg">
 
-Time for some soldering! Trim the LED strips into appropriate lengths (15 works well), cutting along the cut marks and solder on some stiff hookup wire making sure to attatch them to the data-in side of the strip. Attatch the positive wire to the 5v pin on the ESP8266, the ground to ground and the data pin to D3 (you can change this but you'll also need to update the code). I then gently loop over the strip and hotglue it to itself to create a "bulb" of sorts. Rinse and repeat for each lamp. I also add a little hot glue around the wires for strain relief. Upload the code and stick it in the enclosure of your choosing.
+Time for some soldering! Trim the LED strips into appropriate lengths (15 works well), cutting along the cut marks and solder on some stiff hookup wire making sure to attatch them to the data-in side of the strip. Attatch the positive wire to the 5v pin on the ESP8266, the ground to ground and the data pin to D3 (you can change this but you'll also need to update the code). 
+
+I then gently loop over the strip and hotglue it to itself to create a "bulb" of sorts. Rinse and repeat for each lamp. I also add a little hot glue around the wires for strain relief. Upload the code and stick it in the enclosure of your choosing.
+
+<img src="/static/img/IMG_7437.jpg">
 
 Initially I was using strips of 25 LEDs per lamp but I found the power draw was often too much for the ESP8266 and was causing random dropouts on the wifi connection so I reduced the number down to 16 which was still more than enough.
 
