@@ -35,7 +35,7 @@ You don't even have to put the logic on a Pi - if you have a web server anywhere
 Building the lights:
 ==
 
-<img src="/static/img/fritzing.png" width="80%" align="center">
+<center><img src="/static/img/fritzing.png" width="80%"></center>
 
 Time for some soldering! Trim the LED strips into appropriate lengths (15 works well), cutting along the cut marks and solder on some stiff hookup wire making sure to attatch them to the data-in side of the strip. Attatch the positive wire to the 5v pin on the ESP8266, the ground to ground and the data pin to D3 (you can change this but you'll also need to update the code). 
 
