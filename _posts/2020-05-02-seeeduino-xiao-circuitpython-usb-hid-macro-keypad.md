@@ -14,6 +14,7 @@ I'll include the basics, but you can modify this project extensively, using your
 
 ## Equipment ##
 
+
 * Seeduino Xiao. [Official site](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html) [Netherlands Store](https://www.kiwi-electronics.nl/seeeduino-xiao)
 * Enclosure. I used this [3D printed one from Thingiverse](https://www.thingiverse.com/thing:3078258) but you can use anything from an icecream tub to a high-end, pre-made enclosure.
 * [Keyswitches](https://www.aliexpress.com/item/32717954840.html?spm=a2g0s.9042311.0.0.24474c4dX19pzm) and [Keycaps](https://www.aliexpress.com/item/4000492556404.html?spm=a2g0s.9042311.0.0.24474c4dX19pzm). I got mine from Aliexpress but most countries have an online mechanical keyboard supply store that can get them to you faster (and if all else fails, theres always Amazon)
@@ -22,6 +23,7 @@ I'll include the basics, but you can modify this project extensively, using your
 
 
 ## Lets build it! ##
+
 
 By default, the Seeeduino Xiao is configured as an Ardunio device so you'll need to change it to work with CircuitPython. I've already written a tutorial for that, so instead of me rewriting it, you can [just follow that guide](https://makeandymake.github.io/2020/05/02/installing-circuitpython-on-seeeduino-xiao.html) and then come back here.
 
@@ -37,10 +39,11 @@ Once you've done that, you need to connect your common ground to the [ground pin
 
 <img src="/static/img/xiao-pinout.jpg" width="500">
 
-Next, connect a short length of silicon wire from the first pin (D0) to the first key, then repeat for all the keys on the left side of the Xiao and the first GPIO pin on the bottom right (D7).
+Next, connect a short length of silicon wire from the first pin (D0) to the spare pin on the first key, then repeat for all the keys on the left side of the Xiao and the first GPIO pin on the bottom right (D7).
 
 
 ## The code ##
+
 
 This code is super basic - it should be easy enough for anyone with any basic coding experience to follow whats going on but I've added lots of comments just to be sure. The functions are personal to me and mac-centric but with the help of the [keyboard HID library docs](https://circuitpython.readthedocs.io/projects/hid/en/latest/) you should able to change it up to what you need quite easily. If you're feeling fancy you can even emulate mice and gamepads if thats your jam.
 
