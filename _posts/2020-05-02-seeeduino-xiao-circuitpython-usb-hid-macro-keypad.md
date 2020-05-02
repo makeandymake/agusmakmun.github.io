@@ -15,7 +15,7 @@ I'll include the basics, but you can modify this project extensively, using your
 ## Equipment ##
 
 
-* Seeduino Xiao. [Official site](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html) [Netherlands Store](https://www.kiwi-electronics.nl/seeeduino-xiao)
+* Seeduino Xiao. [Official site](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html) / [Netherlands Store](https://www.kiwi-electronics.nl/seeeduino-xiao)
 * Enclosure. I used this [3D printed one from Thingiverse](https://www.thingiverse.com/thing:3078258) but you can use anything from an icecream tub to a high-end, pre-made enclosure.
 * [Keyswitches](https://www.aliexpress.com/item/32717954840.html?spm=a2g0s.9042311.0.0.24474c4dX19pzm) and [Keycaps](https://www.aliexpress.com/item/4000492556404.html?spm=a2g0s.9042311.0.0.24474c4dX19pzm). I got mine from Aliexpress but most countries have an online mechanical keyboard supply store that can get them to you faster (and if all else fails, theres always Amazon)
 * Wire, I used a combination of solid core and silicon wire, you could use just silicon if you prefer.
