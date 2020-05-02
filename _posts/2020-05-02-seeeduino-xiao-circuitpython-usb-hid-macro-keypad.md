@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Creating a simple Mechanical USB HID Macropad using Seeeduino Xiao and CircuitPython"
+title:  "Build a simple USB HID Macropad using Seeeduino Xiao &amp; CircuitPython"
 date:   2020-05-02 16:40:00 +0100
 ---
 
