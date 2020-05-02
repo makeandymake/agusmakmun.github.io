@@ -8,9 +8,9 @@ I recently got into Mechanical Keyboards and thought it would be fun to build my
 
 <img src="/static/img/IMG_9432.jpeg" width="500">
 
-I'll include the basics, but you can modify this project extensively, using yoru own switches (I used mechanical but you could use tactile switches or arcade buttons if you prefer).
+I'll include the basics, but you can modify this project extensively, using your own switches (I used mechanical keyboard keys but you could use tactile switches, arcade buttons or even a foot pedal if you prefer).
 
-This guide assumes a basic amount of knowledge of electronics. Nothing here is rocket science but you'll need to know how to trim wires, do some basic soldering and edit text documents.
+*This guide assumes a basic amount of knowledge of electronics. Nothing here is rocket science but you'll need to know how to trim wires, do some basic soldering and edit text documents.*
 
 ## Equipment ##
 
