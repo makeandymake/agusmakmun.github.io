@@ -6,7 +6,7 @@ date:   2020-05-02 16:40:00 +0100
 
 I recently got into Mechanical Keyboards and thought it would be fun to build my own 8 key mechanical macropad. The process is pretty easy and made even easier with the addition of the Seeduino Xiao which is super cheap and has enough inputs to create a decent sized keypad without the complexities of figuring out how to code a matrix (which if you feel like doing you could create a pad of up to 25 keys with this tiny device!). Lets do this!
 
-<img src="/static/img/IMG_9432.jpeg" width="500" align="center">
+<center><img src="/static/img/IMG_9432.jpeg" width="500" align="center"></center>
 
 I'll include the basics, but you can modify this project extensively, using your own switches (I used mechanical keyboard keys but you could use tactile switches, arcade buttons or even a foot pedal if you prefer).
 
@@ -31,13 +31,13 @@ Next, you'll need to download the [CircuitPython library bundle](https://github.
 
 *NB: You'll notice in the code below that we also import the `time`, `board`, `digitalio` and `usb_hid` libraries. These are built in to the device already so you don't need to add them.*
 
-<img src="/static/img/IMG_9396.jpeg" width="500" align="center">
+<center><img src="/static/img/IMG_9396.jpeg" width="500" align="center"></center>
 
 Next we're going to add the keyswitches to the case. It generally doesn't matter which way around they go but things are easier if you have them all in the same orientation. Once thats done you need to create a "common ground" wire that runs between one pin of each switch. I did this by taking a single strand of solid core wire and cutting away a short amout of the plastic outer layer exposing the wire beneath and then soldering it to the pins. Check my photo above for how it should look.
 
 Once you've done that, you need to connect your common ground to the [ground pin on the Seeduino Xiao](https://wiki.seeedstudio.com/Seeeduino-XIAO/#hardware-overview). I prefer to use a short-ish flexible silicon wire for this part.
 
-<img src="/static/img/xiao-pinout.jpg" width="500" align="center">
+<center><img src="/static/img/xiao-pinout.jpg" width="500" align="center"></center>
 
 Next, connect a short length of silicon wire from the first pin (D0) to the spare pin on the first key, then repeat for all the keys on the left side of the Xiao and the first GPIO pin on the bottom right (D7).
 
