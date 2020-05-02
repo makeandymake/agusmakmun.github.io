@@ -6,7 +6,7 @@ date:   2020-05-02 13:48:00 +0100
 
 I recently acquired a Seeduino Xiao and it's a great value Arduino dev board at only ¢6+ shipping. Not only is it cheap as chips but it's also tiny and comes with a huge amount of GPIO pins (11 Analog/Digital pins, plus 3v power, 5v power and ground) and also has support for I2C, SPI and UART. The size combined with the low cost makes it great for hacking together a variety of little maker projects from wearables to small USB HID devices.
 
-<img src="/static/img/xiao.jpg" width="500">
+<center><img src="/static/img/xiao.jpg" width="500" align="center"></center>
 
 I've done a bunch of projects using Arduino, but I find the IDE to be buggy and generally not fun to use. Lately, I've been preferring CircuitPython based boards like the CircuitPlayground, Feather and Itsy Bitsy boards from Adafruit and luckily, the Seeeduino Xiao is powered by the exact same SAMD21G18 chip that runs so many of the M0 boards from Adafruit which means that it's also able to switch to use Circuit Python with just a few minutes of effort.
 
