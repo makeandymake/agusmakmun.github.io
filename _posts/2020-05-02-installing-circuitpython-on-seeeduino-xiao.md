@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Cicuit Python on Seeeduino Xiao"
+title:  "Installing Circuit Python on Seeeduino Xiao"
 date:   2020-05-02 13:48:00 +0100
 ---
 
