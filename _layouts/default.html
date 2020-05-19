@@ -1,48 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-<meta name="description" content="{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}" />
-<meta name="keywords" content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for categ in page.categories %}{{ categ }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for category in site.categories %}{% capture categories_slug %}{{ category | first }}{% endcapture %}{% for categ in categories_slug %}{{ categ }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %}" />
-<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
-<meta content="{{ site.title }}" property="og:site_name">
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}" />
+  <meta name="keywords" content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for categ in page.categories %}{{ categ }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for category in site.categories %}{% capture categories_slug %}{{ category | first }}{% endcapture %}{% for categ in categories_slug %}{{ categ }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %}" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+  <meta content="{{ site.title }}" property="og:site_name">
+  {% if page.date %}
+  <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+  <meta content="{{ site.url }}/about/" property="article:author">
+  {% endif %}
 
-{% if page.date %}
-<meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
-<meta content="{{ site.url }}/about/" property="article:author">
-{% endif %}
-{% if page.image %}
-<meta content="{{ site.url }}/static/img/posts/{{ page.image }}" property="og:image">
-{% else %}
-<meta content="{{ site.url }}{{ site.avatar_url }}" property="og:image">
-{% endif %}
+  <link rel="stylesheet" href="/static/css/syntax.css">
+  <link rel="stylesheet" href="/static/css/main.css">
 
-{% if page.categories %}
-{% for category in page.categories limit:1 %}
-<meta content="{{ category }}" property="article:section">
-{% endfor %}
-{% endif %}
-
-{% if page.tags %}
-{% for tag in page.tags %}
-<meta content="{{ tag }}" property="article:tag">
-{% endfor %}
-{% endif %}
-
-
-<link rel="stylesheet" href="/static/css/syntax.css">
-<link rel="stylesheet" href="/static/css/main.css">
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130162149-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-130162149-1');
-</script>
-
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130162149-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-130162149-1');
+  </script>
 </head>
   
 <body>
