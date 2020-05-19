@@ -13,3 +13,20 @@ body {
 	line-height: 1.6em;
 	max-width: 960px;
 }
+
+article {
+	width: 70%;
+	border: 1px solid red;
+	float: right
+}
+
+nav {
+	width: 20%;
+	border: 1px solid green;
+	float: left;
+}
+
+footer {
+	padding-top: 50px;
+	clear: both;
+}
