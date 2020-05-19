@@ -15,13 +15,11 @@ collections:
     permalink: /project/:path/
 
 social:
-    - icon: fa-facebook
-      link: "#"
-    - icon: fa-twitter
+    - icon: Twitter
       link: "https://twitter.com/andy_came_back"
-    - icon: fa-github
+    - icon: Github
       link: "https://github.com/andywarburton"
-    - icon: fa-instagram
+    - icon: Instagram
       link: "https://instagram.com/andy.warb"  
 
 share:
