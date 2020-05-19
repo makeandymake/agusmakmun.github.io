@@ -16,13 +16,11 @@ body {
 
 article {
 	width: 70%;
-	border: 1px solid red;
 	float: right;
 }
 
 aside {
 	width: 20%;
-	border: 1px solid green;
 	float: left;
 }
 
