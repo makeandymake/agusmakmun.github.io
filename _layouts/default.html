@@ -38,16 +38,17 @@
   {% if site.about %}
     <p>{{ site.about }}</p>
   {% endif %}
-</aside>
   
-<nav>  
-  <ul class="">
-    <li><a href="/">Home</a></li>
-    {% for i in site.urls %}
-      <li><a class="about" href="{{ i.url }}">{{ i.text }}</a></li>
-    {% endfor %}
-  </ul> 
-</nav>  
+  <nav>  
+    <ul class="">
+      <li><a href="/">Home</a></li>
+      {% for i in site.urls %}
+        <li><a class="about" href="{{ i.url }}">{{ i.text }}</a></li>
+      {% endfor %}
+    </ul> 
+  </nav>  
+
+</aside>  
   
   <foooter>
     <p>
