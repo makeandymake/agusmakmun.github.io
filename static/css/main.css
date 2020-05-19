@@ -17,7 +17,7 @@ body {
 article {
 	width: 70%;
 	border: 1px solid red;
-	float: right
+	float: right;
 }
 
 aside {
