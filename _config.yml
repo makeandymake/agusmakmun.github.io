@@ -1,39 +1,36 @@
 title: Make // Andy // Make
 description: I muck about with electronics and try to succeed at life
 author: Andy Warburton
-github: https://github.com/agusmakmun
-about: I muck about with electronics and try to succeed at life <br /><a href="https://ko-fi.com/andyw">Buy me a coffee!</a>
-disqus_shortname: stackproblems
+github: https://github.com/andywarburton
+about: I'm Andy and making stuff is my jam. Sometimes I mess around with electronics, others I get my hands dirty in the kitchen. I like to code and design things.<br /><a href="https://ko-fi.com/andyw">Buy me a coffee!</a>
 google_analytics: UA-XXXXXXXX-Y
 avatar_url: /static/img/andywarburton.jpg
 
-enableTags: true
+enableTags: false
 tagarray: []
 
 collections:
   project:
-    output: true
+    output: false
     permalink: /project/:path/
 
 social:
     - icon: fa-facebook
       link: "#"
     - icon: fa-twitter
-      link: "https://twitter.com/awarburton"
+      link: "https://twitter.com/andy_came_back"
     - icon: fa-github
       link: "https://github.com/andywarburton"
     - icon: fa-instagram
       link: "https://instagram.com/andy.warb"  
 
 share:
-  twitter_username: awarburton
+  twitter_username: andy_came_back
   #fb_appid: 1749788565247320
 
 urls:
     - text: About Me
       url: /about/
-#   - text: My Projects
-#   url: /projects/
     - text: XML Feed
       url: /feed.xml
 
