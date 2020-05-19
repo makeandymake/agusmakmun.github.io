@@ -2,6 +2,7 @@
 	background-color: #fff;
 	padding: 60px 30px;
 	margin: 0;
+	color: #444;
 }
 
 body {
@@ -27,4 +28,6 @@ aside {
 footer {
 	padding-top: 50px;
 	clear: both;
+	text-align: center;
+	color: #999;
 }
