@@ -57,3 +57,7 @@ pre.highlight {
 	padding: 20px;
 	border: 1px solid #666;
 }
+
+.time {
+	opacity: 0.5;
+}
