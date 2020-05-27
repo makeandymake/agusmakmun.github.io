@@ -51,3 +51,9 @@ a {
 a:hover {
 	color: #2FFF17;
 }
+
+.language-plaintext {
+	background: #000;
+	padding: 10px;
+	border: 1px solid #666;
+}
