@@ -52,8 +52,8 @@ a:hover {
 	color: #2FFF17;
 }
 
-.language-plaintext {
+pre.highlight {
 	background: #000;
-	padding: 10px 20px;
+	padding: 20px;
 	border: 1px solid #666;
 }
