@@ -65,3 +65,7 @@ pre.highlight {
 img {
 	max-width: 100%;
 }
+
+pre {
+	background: #000;	
+}
