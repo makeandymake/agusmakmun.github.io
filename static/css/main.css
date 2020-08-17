@@ -61,3 +61,7 @@ pre.highlight {
 .time {
 	color: #666;
 }
+
+img {
+	max-width: 100%;
+}
