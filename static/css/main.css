@@ -69,7 +69,6 @@ img {
 pre {
 	background: #000;
 	padding: 20px;
-	overflow: scroll;
 	white-space:pre-wrap;
 }
 
