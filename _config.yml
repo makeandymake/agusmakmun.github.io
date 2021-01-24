@@ -41,6 +41,7 @@ markdown: kramdown
 gems:
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-redirect-from
 
 compress_html:
   clippings: all
