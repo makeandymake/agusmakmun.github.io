@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: redirect
+redir_to: 'https://andywarburton.co.uk/networked-nightlights-with-esp8266-and-raspberry-pi/'
 title:  "Networked Nightlights with ESP8266 and Raspberry Pi"
 date:   2018-11-29 21:00:00 +0100
 ---
