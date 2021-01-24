@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: redirect
+redir_to: 'https://andywarburton.co.uk/metric-recipe-for-fluffy-american-style-pancakes/'
 title:  "Metric Recipe for Fluffy American Style Pancakes"
 date:   2018-06-18 15:04:00 +0100
 ---
