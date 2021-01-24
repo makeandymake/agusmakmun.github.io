@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: redirect
+redir_to: 'https://andywarburton.co.uk/installing-circuit-python-on-seeeduino-xiao/'
 title:  "Installing Circuit Python on Seeeduino Xiao"
 date:   2020-05-02 13:48:00 +0100
 ---
