@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: redirect
+redir_to: 'https://andywarburton.co.uk/fix-mac-osx-volume-keys-not-working-with-via-qmk/'
 title:  "FIX: Mac OSX Volume keys not working with VIA/QMK"
 date:   2020-07-21 11:21:00 +0100
 ---
