@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: redirect
+redir_to: 'https://andywarburton.co.uk/welcome-to-my-maker-blog/'
 title:  "Welcome to my Maker blog"
 date:   2018-06-18 10:02:00 +0100
 redirect_to: 'https://andywarburton.co.uk/welcome-to-my-maker-blog/'
