@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: redirect
+redir_to: 'https://andywarburton.co.uk/build-a-simple-usb-hid-macropad-using-seeeduino-xiao-circuitpython/'
 title:  "Build a simple USB HID Macropad using Seeeduino Xiao &amp; CircuitPython"
 date:   2020-05-02 16:40:00 +0100
 ---
