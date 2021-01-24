@@ -2,6 +2,8 @@
 layout: post
 title:  "Welcome to my Maker blog"
 date:   2018-06-18 10:02:00 +0100
+redirect_to: 'https://andywarburton.co.uk/welcome-to-my-maker-blog/'
+
 ---
 __Hi, I'm Andy and I like to Make Stuff__ _(totally stealing Bob's line here!)._
 
